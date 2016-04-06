@@ -35,18 +35,17 @@ const reducer = (state = 0, action = {}) => {
 
 let store = createStore(reducer)
 
-/* global window */
 const render = () => {
-    window.document.getElementById('state').innerText = store.getState()
+    document.getElementById('state').innerText = store.getState()
 }
 
 store.subscribe(render)
 render()
 
-window.document.getElementById('inc').addEventListener('click', () => {
+document.getElementById('inc').addEventListener('click', () => {
     store.dispatch({ type: 'INCREMENT' })
 })
 
-window.document.getElementById('dec').addEventListener('click', () => {
+document.getElementById('dec').addEventListener('click', () => {
     store.dispatch({ type: 'DECREMENT' })
 })
