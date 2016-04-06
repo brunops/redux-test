@@ -1,6 +1,6 @@
 
 const createStore = (reducer) => {
-    let state = reducer()
+    let state
     let listeners = []
 
     const getState = () => state
@@ -19,10 +19,13 @@ const createStore = (reducer) => {
         }
     }
 
+    // start store
+    dispatch({})
+
     return { dispatch, subscribe, getState }
 }
 
-const reducer = (state = 0, action = {}) => {
+const reducer = (state = 0, action) => {
     switch (action.type) {
         case 'INCREMENT':
             return state + 1
